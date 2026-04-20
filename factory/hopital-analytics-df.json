@@ -1,0 +1,9 @@
+{
+	"name": "hopital-analytics-df",
+	"location": "southafricanorth",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "55294fc8-d9b8-46ae-88d4-ec706cddb86b",
+		"tenantId": "daf5ba2f-f316-4d35-90c9-f6e61ac95885"
+	}
+}

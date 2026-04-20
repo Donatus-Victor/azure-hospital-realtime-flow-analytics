@@ -1,0 +1,24 @@
+{
+	"name": "Gold-trigger1",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pipeline1",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 5,
+				"startTime": "2026-04-19T18:58:00",
+				"timeZone": "W. Central Africa Standard Time"
+			}
+		}
+	}
+}

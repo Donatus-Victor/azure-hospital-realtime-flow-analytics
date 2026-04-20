@@ -1,0 +1,20 @@
+{
+	"name": "hospitaldatabricks",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureDatabricks",
+		"typeProperties": {
+			"domain": "https://adb-7405612346634597.17.azuredatabricks.net",
+			"accessToken": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "hospitalvault",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "databricks-connection"
+			},
+			"existingClusterId": "0419-122936-1bnml1wp"
+		}
+	}
+}
