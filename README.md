@@ -244,7 +244,6 @@ SELECT * FROM dbo.fact_patient_flow
 |---|---|
 | Real-time patient admission monitoring | ✅ Implemented |
 | Department-level bottleneck identification | ✅ Implemented |
-| Gender-based & age-based KPIs | ✅ Implemented |
 | Medallion Architecture (Bronze → Silver → Gold) | ✅ Implemented |
 | SCD Type 2 for patient & department history | ✅ Implemented |
 | Star Schema for analytics | ✅ Implemented |
