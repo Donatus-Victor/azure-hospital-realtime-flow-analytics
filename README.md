@@ -9,11 +9,11 @@
 
 ## 📌 Project Summary
 
-I built a fully automated, end-to-end real-time healthcare data pipeline on Microsoft Azure. The pipeline ingests simulated patient admission and discharge events, processes them through a Medallion Architecture (Bronze → Silver → Gold), models the data into a Star Schema, and delivers live KPI dashboards in Power BI connected from the dataset.
+I built a fully automated, end-to-end real-time healthcare data pipeline on Microsoft Azure. The pipeline ingests simulated patient admission and discharge events, processes them through a Medallion Architecture (Bronze → Silver → Gold), and models the data into a Star Schema.
 
-**Part 1 — Data Engineering:** Real-time ingestion + transformation pipeline (Event Hubs → Databricks → ADLS → Synapse)
+ Data Engineering:** Real-time ingestion + transformation pipeline (Event Hubs → Databricks → ADLS → Synapse)
 
-**Part 2 — Analytics:** Power BI dashboard with live hospital KPIs
+
 
 ---
 
@@ -22,7 +22,7 @@ I built a fully automated, end-to-end real-time healthcare data pipeline on Micr
 - **End-to-End Pipeline:** From real-time ingestion → transformation → warehouse → analytics
 - **Scalable Architecture:** Easily adaptable for different hospital datasets
 - **Business Insights:** Hospital admins can monitor bed usage, patient flow, and department efficiency in real time
-- **Portfolio Value:** Demonstrates both Data Engineering and Analytics skills in one project
+- **Portfolio Value:** Demonstrates both Data Engineering skills in this project
 
 ---
 
@@ -37,11 +37,10 @@ Azure Databricks — Bronze Layer  (raw Delta storage)
         ↓
 Azure Databricks — Silver Layer  (cleaned & validated data)
         ↓
-Azure Databricks — Gold Layer    (Star Schema, business enriched data)
+Azure Databricks — Gold Layer    (Star Schema, business-enriched data)
         ↓
 Azure Synapse Analytics          (Serverless SQL Built-in)
-        ↓
-Power BI Desktop                 (Live dashboards & KPI reports)
+
 ```
 
 ---
@@ -51,7 +50,7 @@ Power BI Desktop                 (Live dashboards & KPI reports)
 - Collect real-time patient data via Azure Event Hubs
 - Process and cleanse data using Databricks (Bronze → Silver → Gold layers)
 - Implement a Star Schema in Synapse for efficient querying
-- Connect Power BI for live hospital KPI dashboards
+- Create a connection end point to data analyst to connect to Power BI for live hospital KPI dashboards
 - Enable Version Control with Git
 
 ---
@@ -66,7 +65,6 @@ Power BI Desktop                 (Live dashboards & KPI reports)
 | Data Modeling | Azure Databricks | PySpark / SCD Type 2 | Gold layer star schema & dimensions |
 | Orchestration | Azure Data Factory | ADF Pipelines | Automated batch & streaming triggers |
 | Analytics | Azure Synapse Analytics | Serverless SQL (Built-in) | SQL queries on gold Delta tables |
-| Visualization | Power BI Desktop | Direct Query | Live dashboards & KPI reports |
 | Security | Azure Key Vault | Managed Identity | Secrets & credentials management |
 | Storage | Azure Data Lake Gen2 | ADLS / Delta Format | Bronze, Silver, Gold containers |
 | Version Control | GitHub | Git | Code, notebooks & SQL scripts |
@@ -154,25 +152,6 @@ Every time a patient record changes, the old record is expired and a new one is 
 
 ---
 
-## 📊 Power BI Dashboard — KPIs
-
-Connected Azure Synapse Analytics (Serverless SQL Built-in) to Power BI using a direct SQL connection. Imported `fact_patient_flow` and all dimension tables. Established Star Schema relationships for reporting.
-
-| KPI | Description |
-|---|---|
-| Bed Occupancy Rate | Real-time occupancy by department and gender |
-| Patient Flow Trends | Admissions and wait time trends over time |
-| Average Length of Stay | Average stay duration per patient |
-| Gender-Based Distribution | Male vs Female occupancy breakdown |
-| Age-Based KPIs | Patient age group demographics |
-| Department Bottlenecks | Emergency, Surgery, ICU load monitoring |
-| Total Patients | Count of active and discharged patients |
-
-### Dashboard Screenshots
-> *(Add your Power BI dashboard screenshots here)*
-
----
-
 ## ⚙️ Step-by-Step Implementation
 
 ### 1. Event Hub Setup
@@ -196,11 +175,8 @@ Connected Azure Synapse Analytics (Serverless SQL Built-in) to Power BI using a 
 - Created External Data Source, File Format and External Tables
 - Queried `dim_patient`, `dim_department`, `fact_patient_flow`
 
-### 6. Power BI
-- Connected Power BI Desktop to Synapse using Microsoft Account
-- Built interactive dashboards with slicers for gender and department filters
 
-### 7. Version Control
+### 6. Version Control
 - All code, notebooks and SQL scripts pushed to GitHub
 
 ---
@@ -220,7 +196,6 @@ Connected Azure Synapse Analytics (Serverless SQL Built-in) to Power BI using a 
 
 - Daily batch ingestion triggers from simulated EHR systems
 - Real-time processing triggers connected to Databricks notebooks
-- Gold layer refresh automated for Power BI dashboard updates
 - Get Metadata activity validates file existence before processing
 - If Condition activity routes pipeline based on data availability
 - Pipeline failure alerts configured
@@ -252,14 +227,6 @@ SELECT * FROM dbo.dim_department
 SELECT * FROM dbo.fact_patient_flow
 ```
 
-### Step 4 — Visualize in Power BI
-1. Open Power BI Desktop
-2. Get Data → Azure → Azure Synapse Analytics SQL
-3. Sign in with Microsoft Account
-4. Build dashboards on top of Synapse external tables
-
----
-
 ## 💡 Key Learnings
 
 - Newer Databricks workspaces have DBFS disabled — use ADLS paths (`abfss://`) for all checkpoints
@@ -282,7 +249,6 @@ SELECT * FROM dbo.fact_patient_flow
 | SCD Type 2 for patient & department history | ✅ Implemented |
 | Star Schema for analytics | ✅ Implemented |
 | Azure Synapse for SQL analytics | ✅ Implemented |
-| Power BI dashboards | ✅ Implemented |
 | ADF pipeline orchestration & automation | ✅ Implemented |
 | Data quality handling (dirty data) | ✅ Implemented |
 | Azure Key Vault security | ✅ Implemented |
